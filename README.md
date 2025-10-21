@@ -1,20 +1,26 @@
-# String Analyzer API – Stage 1 Task
+# Backend Wizards — Stage 1: String Analyzer API
 
-A RESTful API service that analyzes strings and stores their computed properties.
+## Overview
+This project is a **RESTful API** service that analyzes strings and stores their computed properties.  
+For each string, the API computes:
+- `length` — number of characters
+- `is_palindrome` — true/false if the string reads the same forwards/backwards (case-insensitive)
+- `unique_characters` — count of distinct characters
+- `word_count` — number of words
+- `sha256_hash` — SHA-256 hash for unique identification
+- `character_frequency_map` — counts of each character
 
-## Features
-- Analyze strings for properties like length, palindrome, unique characters, word count, SHA256 hash, and character frequency.
-- Retrieve all strings or a specific one.
-- Filter strings by properties or natural language.
-- Delete strings.
-- File-based data persistence.
+---
 
-## Tech Stack
-- Node.js
-- Express.js
+## Endpoints
 
-## Setup Instructions
-1. Clone the repo
-   ```bash
-   git clone https://github.com/Devalps/backend-stage1.git
-   cd backend-stage1
+### 1. Create / Analyze String
+**POST** `/strings`  
+**Headers:**  
+`Content-Type: application/json`  
+
+**Body Example:**
+```json
+{
+  "value": "madam"
+}
